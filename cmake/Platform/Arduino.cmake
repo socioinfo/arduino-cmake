@@ -474,6 +474,11 @@ function(GENERATE_ARDUINO_FIRMWARE INPUT_NAME)
     if(NOT INPUT_MANUAL)
         set(INPUT_MANUAL FALSE)
     endif()
+    set(ARDUINO_CPUMENU)
+    if(ARDUINO_CPU)
+        set(ARDUINO_CPUMENU ".menu.cpu.${ARDUINO_CPU}")
+    endif(ARDUINO_CPU)
+
     required_variables(VARS INPUT_BOARD MSG "must define for target ${INPUT_NAME}")
 
     set(ALL_LIBS)
